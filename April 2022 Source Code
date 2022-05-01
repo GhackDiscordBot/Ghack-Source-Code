@@ -1,0 +1,71 @@
+const express = require("express");
+const app = express();
+
+app.listen(3000, () => { 
+  console.log("Project is running!");
+})
+
+app.get("/",(req, res) => {
+  res.send("Bot is online and working");
+})
+
+const keep_alive = require('./keep_alive.js')
+
+const Discord = require("discord.js");
+const client = new Discord.Client ({intents: ["GUILDS", "GUILD_MESSAGES"]});
+
+  client.on("messageCreate", message => {
+    if(message.content ==="$hello") {
+    message.channel.send("Hey, I'm Ghack! Use $cmds to see my command list.")
+    }})
+    
+client.login(process.env.token);
+
+client.on("messageCreate", message => {
+    if(message.content === "$cmds") {
+    message.channel.send("Commands list: $hello, $cmds, $who, $minion, $cats")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$who") {
+    message.channel.send("asked...lol")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$minion") {
+    message.channel.send("Banana. :banana:")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$amicool") {
+    message.channel.send("no shut up")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$botstatus") {
+    message.channel.send("Bot is online and working! Tip: If I do not reply it means I am not online and/or not working, if so, please contact Jimmy Beanz or submit a report to https://forms.gle/K6yzEkSVr74f8etF6")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$ambushplum") {
+    message.channel.send("Congrats! You found the secret command! Here are all the hidden commands that don't show up on the commands list: $botstatus, $amicool, $talktome")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$talktome") {
+    message.channel.send("no thanks")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$givemepoo9") {
+    message.channel.send("Poo9 is my best friend (forever) who sadly pass away :pensive: so i cant give to you sorryyyyy bestiiieeeee :crying_cat_face:")
+    }})
+
+client.on("messageCreate", message => {
+    if(message.content === "$rateme") {
+    message.channel.send("I would say a solid [REDACTED]")
+    }})
+
+
+
+// hey there, i see you have found the April 2022 source code on GitHub?
